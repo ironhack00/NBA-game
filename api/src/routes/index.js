@@ -1,7 +1,6 @@
 const { Router } = require('express');
 const { getAllTeams, getTeam } = require('./controllers/getAllTeams');
-const { getType } = require('./controllers/getType');
-const { postPokemon } = require('./controllers/postPokemon');
+const { postUser } = require('./controllers/postUser');
 const { getNamePokemon } = require('./controllers/getNamePokemon')
 const axios = require('axios');
 
@@ -31,22 +30,10 @@ router.get('/team/:idTeam', async(req, res)=> {
       } 
 })
 
-router.get('/type', async(req, res)=> {
-
-  try{
-        res.status(200).json(await getType());
-    }catch{
-        res.status(404).json(console.log('Disculpa, andamos con problemas tecnicos'))
-    } 
-
-})
-
-  router.post('/pokemons', async(req, res)=> {
-
+router.post('/user', async(req, res)=> {
     console.log(req.body)
-
     try{
-        res.status(200).json(await postPokemon(req.body));
+        res.status(200).json(await postUser(req.body));
     }catch{
         res.status(404).json(console.log('estamos tendiendo problemas tecnicos, sepa disculpar'));
     }
