@@ -1,6 +1,5 @@
 const { Router } = require('express');
-const { getAllInfo } = require('./controllers/getAllInfo');
-const { getIdPokemon } = require('./controllers/getIdPokemon');
+const { getAllTeams, getTeam } = require('./controllers/getAllTeams');
 const { getType } = require('./controllers/getType');
 const { postPokemon } = require('./controllers/postPokemon');
 const { getNamePokemon } = require('./controllers/getNamePokemon')
@@ -15,38 +14,22 @@ const router = Router();
 // Configurar los routers
 // Ejemplo: router.use('/auth', authRouter);
 
-router.get('/pokemons', async(req, res)=> {
-
-    const { name } = req.query;
-    console.log(name)
- 
-    if(name === undefined){
+router.get('/teams', async(req, res)=> {
         try{
-            res.status(200).json(await getAllInfo());
+            res.status(200).json(await getAllTeams());
         }catch{
-            res.status(404).json(console.log('Disculpa, andamos con problemas tecnicos'));
+            res.status(404).json(console.log('Disculpa, andamos con problemas tecnicos o.O'));
         }
-    }else{
-        try{
-            res.status(200).json(await getNamePokemon(name));
-        }catch{
-            res.status(404).json(console.log('Disculpa, andamos con problemas tecnicos'));
-        }
-    } 
-
 })
 
-router.get('/pokemons/:idPokemon', async(req, res)=> {
-
-    const { idPokemon } = req.params;
-
+router.get('/team/:idTeam', async(req, res)=> {
+    const { idTeam } = req.params;
     try{
-          res.status(200).json(await getIdPokemon(idPokemon));
+          res.status(200).json(await getTeam(idTeam));
       }catch{
           res.status(404).json(console.log('Disculpa, andamos con problemas tecnicos'));
       } 
-  
-  })
+})
 
 router.get('/type', async(req, res)=> {
 

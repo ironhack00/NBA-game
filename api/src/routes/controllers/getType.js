@@ -1,4 +1,4 @@
-const axios = require('axios');
+/* const axios = require('axios');
 const { Type } = require("../../db");
 
 const getType = async()=>{
@@ -19,4 +19,4 @@ const getType = async()=>{
 
 }
 
-module.exports = {getType}
+module.exports = {getType} */

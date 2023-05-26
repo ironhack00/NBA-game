@@ -1,4 +1,4 @@
-const { getAllInfo } = require('./getAllInfo'); 
+/* const { getAllInfo } = require('./getAllInfo'); 
 
 const getNamePokemon = async(name)=>{
     const getInfo = await getAllInfo();
@@ -10,3 +10,4 @@ const getNamePokemon = async(name)=>{
 };
 
 module.exports = {getNamePokemon};
+ */

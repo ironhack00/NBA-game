@@ -1,4 +1,4 @@
-const { Pokemon, Type } = require('../../db')
+/* const { Pokemon, Type } = require('../../db')
 
 const postPokemon = async({name, life, attack, defending, speed, hight, weight, listType})=>{
 
@@ -35,4 +35,4 @@ const postPokemon = async({name, life, attack, defending, speed, hight, weight, 
 
 }
 
-module.exports = {postPokemon}
+module.exports = {postPokemon} */
