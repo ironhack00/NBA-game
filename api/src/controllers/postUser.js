@@ -73,8 +73,8 @@ const log = async function(req, res){
     } = req.body
 
     console.log('hola')
-    /* try{ */
-        let us = await User.find({
+    try{
+        let us = await User.findOne({
             where: { userName: userName },
         })
         console.log(us)
@@ -84,9 +84,9 @@ const log = async function(req, res){
             return res.status(200).send('no existe el usuario')
         }
         
-    /* }catch{
+    }catch{
         return res.status(400).json('tenemos un error')
-    } */
+    }
    
 
 }
