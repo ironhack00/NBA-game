@@ -1,5 +1,5 @@
 const { Router } = require('express');
-const { postUser } = require('../controllers/postUser');
+const { postUsers, log } = require('../controllers/postUser');
 const axios = require('axios');
 
 // Importar todos los routers;
@@ -9,15 +9,10 @@ const axios = require('axios');
 const router = Router();
 
 // Configurar los routers
-// Ejemplo: router.use('/auth', authRouter);
+// Ejemplo: router.use('/auth', authRouter);    
 
-router.post('/user', async(req, res)=> {
-    console.log('holaaaa ',req.body)
-    try{
-        res.status(200).json(await postUser(req.body));
-    }catch{
-        res.status(404).json(console.log('estamos tendiendo problemas tecnicos, sepa disculpar'));
-    }
+router.post('/user', postUsers)
+router.get('/user', log)
 
-})
+
 module.exports = router;

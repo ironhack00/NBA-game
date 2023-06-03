@@ -22,5 +22,9 @@ module.exports = (sequelize) => {
         type:DataTypes.STRING,
         
     },
+    state:{
+      type:DataTypes.BOOLEAN,
+      defaultValue: 'false'
+  },
   });
 };
