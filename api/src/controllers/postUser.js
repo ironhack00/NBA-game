@@ -55,7 +55,6 @@ const postUsers = async function (req, res) {
                 defaults: {
                     password: pas,
                     email: email,
-                    image,
                 }
             })
 
@@ -68,14 +67,16 @@ const postUsers = async function (req, res) {
 }
 const log = async function(req, res){
     
+    
     let {
-        userName
-    } = req.body
+        email, 
+        password
+    } = req.query
 
-    console.log('hola')
+    console.log(email, password)
     try{
         let us = await User.findOne({
-            where: { userName: userName },
+            where: { email: email },
         })
         console.log(us)
         if(us){
@@ -85,7 +86,7 @@ const log = async function(req, res){
         }
         
     }catch{
-        return res.status(400).json('tenemos un error')
+        return res.status(400).send('tenemos un error')
     }
    
 
